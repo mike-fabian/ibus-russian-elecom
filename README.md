@@ -22,3 +22,18 @@ ibus-setup
 
 The last command will open the ibus configuration utility.
 Go to the "Input method" tab, click on "Add", then "Russian", and "Russian - Russian (Elecom)" should show up.
+
+## Avoiding undesired LShift behavior
+
+Some versions of ibus use the left shift key to toggle between direct and table input mode.
+This may be convenient for some languages (e.g. Chinese) but it's most inconvenient if you use the shift key to temporary shift case.
+Moreover, it's impossible to disable this behavior through the configuration utility, unless you're running ibus-table version 1.12.0 and onwards.
+I don't have access to that version yet, so I patched my local ibus to disable the behavior conditionally.
+To apply the patch:
+
+```
+sudo patch -b -p1 /usr/share/ibus-table/engine/table.py < patch.txt
+ibus-daemon -drx
+```
+
+I made the patch from the version packaged in the ibus-table Ubuntu package 1.9.25-1, but it should work equally well for other versions.

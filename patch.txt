@@ -1,0 +1,22 @@
+--- a/table.py	2021-02-04 17:02:09.681342503 +0900
++++ b/table.py 2021-02-04 17:02:16.269345810 +0900
+@@ -1776,6 +1776,9 @@
+         self.sync_timeout_id = GObject.timeout_add_seconds(
+             1, self._sync_user_db)
+ 
++        if 'russian-elecom' in self._engine_name:
++            self.set_input_mode(1)
++
+     def reset(self):
+         '''Clear the preëdit and close the lookup table
+         '''
+@@ -2883,6 +2886,9 @@
+                 and (self._match_hotkey(
+                     key, IBus.KEY_Shift_L,
+                     IBus.ModifierType.SHIFT_MASK))):
++            if 'russian-elecom' in self._engine_name:
++                return False
++
+             self.set_input_mode(int(not self._input_mode))
+             return True
+ 
