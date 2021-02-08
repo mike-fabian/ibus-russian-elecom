@@ -58,7 +58,7 @@ AUTHOR = m@penkov.dev
 STATUS_PROMPT = RU
 
 ### Valid input chars.
-VALID_INPUT_CHARS = 1234567890-^\qwertyuiop@[asdfghjkl;:]zxcvbnm,./\!"#$%&'()~?~|QWERTYUIOP`{ASDFGHJKL+*}ZXCVBNM<>?_
+VALID_INPUT_CHARS = 1234567890-^\qwertyuiop@[asdfghjkl;:]zxcvbnm,./_!"#$%&'()~|QWERTYUIOP`{ASDFGHJKL+*}ZXCVBNM<>?\
 
 ### Layout
 LAYOUT = us
@@ -117,7 +117,7 @@ DYNAMIC_ADJUST = FALSE
 ### Usually "1,2,3,4,5,6,7,8,9" but if this conflicts with
 ### characters one wants to use for input one can also
 ### use something like “F1,F2,F3,F4,F5,F6,F7,F8,F9”
-SELECT_KEYS = 1,2,3,4,5,6,7,8,9
+SELECT_KEYS = F1,F2,F3,F4,F5,F6,F7,F8,F9
 
 ### The default orientation of the candidate list
 ### TRUE means the candidate list is vertical, FALSE means it is vertical
@@ -191,14 +191,14 @@ m	ь	1
 ### first row
 !	!	1
 "	"	1
-#	#	1
-$	$	1
+#	№	1
+$	;	1
 %	%	1
-&	&	1
-'	'	1
-(	(	1
-)	)	1
-~	~	1
+&	:	1
+'	?	1
+(	*	1
+)	(	1
+~	)	1
 =	=	1
 ~	~	1
 |	|	1
@@ -241,17 +241,3 @@ M	Ь	1
 ?	,	1
 _	_	1
 END_TABLE
-
-### Since some input methods use different table for every character to make
-### phrase, such as ZhengMa, they need explict define the goucima (the
-### phrase-building code for the given character), the format of every entry is
-### "character\tgoucima\n". 
-### For the input method which just use the full code as word-building code
-### just skip this field. The ibus-table will build the codes needed from
-### above TABLE.
-### if you don't need different word-building code, please comment out the
-### next few lines with ###, just like these lines you are look at now.
-BEGIN_GOUCI
-character_1	goucima_1
-character_1	goucima_2
-END_GOUCI
